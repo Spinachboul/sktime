@@ -4,7 +4,7 @@ import functools
 import logging
 import os
 import time
-from typing import List, Optional, Union
+from typing import Optional, Union
 
 import pandas as pd
 from sktime.utils.dependencies import _check_soft_dependencies
@@ -17,7 +17,7 @@ def run(
     model_registry,
     validation_registry,
     results_path: str = "./validation_results.csv",
-    force_rerun: Optional[List[str]] = None,
+    force_rerun: Optional[list[str]] = None,
     artefacts_store_dir: Optional[str] = None,
     run_params: Optional[dict] = None,
     verbose: bool = False,
@@ -225,7 +225,7 @@ def _run_validation_model(validation, model, run_params: dict):
     return results, elapsed_secs
 
 
-def _write(df: pd.DataFrame, results_path: str, to_front_cols: List[str]):
+def _write(df: pd.DataFrame, results_path: str, to_front_cols: list[str]):
     """Write the results to the results path."""
     df = df[to_front_cols + [col for col in df.columns if col not in to_front_cols]]
     df.to_csv(results_path, index=False)
