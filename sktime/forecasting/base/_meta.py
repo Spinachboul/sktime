@@ -67,7 +67,7 @@ class _HeterogenousEnsembleForecaster(_HeterogenousMetaEstimator, BaseForecaster
         """Fit all forecasters in parallel."""
         from sktime.utils.parallel import parallelize
 
-        def _fit_forecaster(forecaster, y, X, fh):
+        def _fit_forecaster(forecaster, y, X, fh, meta=None):
             """Fit single forecaster."""
             return forecaster.fit(y, X, fh)
 

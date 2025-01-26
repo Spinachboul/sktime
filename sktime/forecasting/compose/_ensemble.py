@@ -165,7 +165,7 @@ class AutoEnsembleForecaster(_HeterogenousEnsembleForecaster):
         if self.backend == "utils":
             # Use sktime.utils.parallel
             def _fit_single_forecaster(forecaster, y, X, fh):
-                return self._fit_forecaster(forecaster, y, X, fh)
+                return self._fit_forecaster(forecaster, y, X, fh, meta=None)
 
             parallelize(
                 fun=_fit_single_forecaster,
