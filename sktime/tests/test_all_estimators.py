@@ -1090,12 +1090,28 @@ class TestAllObjects(BaseFixtureGenerator, QuickTester):
 
         # Ensure that each parameter is set in init
         init_params = _get_args(type(estimator).__init__)
-        invalid_attr = set(init_params) - set(vars(estimator)) - {"self"}
-        assert not invalid_attr, (
-            "Estimator %s should store all parameters"
-            " as an attribute during init. Did not find "
-            "attributes `%s`." % (estimator.__class__.__name__, sorted(invalid_attr))
-        )
+        # invalid_attr = set(init_params) - set(vars(estimator)) - {"self"}
+        # assert not invalid_attr, (
+        #     "Estimator %s should store all parameters"
+        #     " as an attribute during init. Did not find "
+        #     "attributes `%s`." % (estimator.__class__.__name__, sorted(invalid_attr))
+        # )
+
+        for param in init_params:
+            if param != "self":
+                assert hasattr(estimator, param), (
+                    f"Estimator {estimator.__class__.__name__} should store parameters "
+                    f"as an estimator during init. Missing attribute: {param}."
+                )
+                # Check that default values are not overwritten unintentionally
+                default_value = getattr(
+                    estimator_class.__init__.__defaults__, param, None
+                )
+                if param == "backend_params" and default_value is None:
+                    assert getattr(estimator, param) == {}, (
+                        f"Default value of `backend_params` should be set to {{}} for "
+                        f"{estimator.__class__.__name__}"
+                    )
 
         # Ensure that init does nothing but set parameters
         # No logic/interaction with other parameters

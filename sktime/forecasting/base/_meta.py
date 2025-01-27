@@ -28,7 +28,7 @@ class _HeterogenousEnsembleForecaster(_HeterogenousMetaEstimator, BaseForecaster
         self.forecasters = forecasters
         self.forecasters_ = None
         self.backend = backend
-        self.backend_params = backend_params if backend_params is not None else {}
+        self.backend_params = backend_params if backend_params != {} else {}
         self.n_jobs = n_jobs  # Retained for backward compatibility
         super().__init__()
 
