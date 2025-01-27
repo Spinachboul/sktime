@@ -114,7 +114,7 @@ class StackingForecaster(_HeterogenousEnsembleForecaster):
 
         # fit forecasters on training window
         self._fit_forecasters(forecasters, y_train, fh=inner_fh, X=X_train)
-        y_preds = self._predict_forecasters(fh=inner_fh, X=X_test)
+        y_preds = self._predict_forecasters(y=None, fh=inner_fh, X=X_test)
 
         y_meta = y_test.values
         X_meta = np.column_stack(y_preds)

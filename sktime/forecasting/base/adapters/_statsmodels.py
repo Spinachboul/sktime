@@ -62,10 +62,10 @@ class _StatsModelsAdapter(BaseForecaster):
         # so we coerce them here to pd.RangeIndex
         if isinstance(y, pd.Series) and pd.api.types.is_integer_dtype(y.index):
             y, X = _coerce_int_to_range_index(y, X)
-        self._fit_forecaster(y, X)
+        self._fit_forecaster(y, X, fh=None)
         return self
 
-    def _fit_forecaster(self, y_train, X_train=None):
+    def _fit_forecaster(self, y_train, X_train=None, fh=None):
         """Log used internally in fit."""
         raise NotImplementedError("abstract method")
 

@@ -123,7 +123,7 @@ class VAR(_StatsModelsAdapter):
 
         super().__init__(random_state=random_state)
 
-    def _fit_forecaster(self, y, X=None):
+    def _fit_forecaster(self, y, X=None, fh=None):
         """Fit forecaster to training data.
 
         Wraps Statsmodel's VAR fit method.

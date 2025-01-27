@@ -289,7 +289,7 @@ class VARMAX(_StatsModelsAdapter):
 
         super().__init__()
 
-    def _fit_forecaster(self, y, X=None):
+    def _fit_forecaster(self, y, X=None, fh=None):
         """Fit forecaster to training data.
 
         Writes to self:

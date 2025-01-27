@@ -138,7 +138,7 @@ class AutoREG(_StatsModelsAdapter):
 
         super().__init__()
 
-    def _fit_forecaster(self, y, X=None):
+    def _fit_forecaster(self, y, X=None, fh=None):
         """Fit forecaster to training data.
 
         private _fit_forecaster containing the core logic, called from fit

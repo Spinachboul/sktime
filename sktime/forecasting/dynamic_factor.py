@@ -335,7 +335,7 @@ class DynamicFactor(_StatsModelsAdapter):
 
         return predictions_df_3
 
-    def _fit_forecaster(self, y, X=None):
+    def _fit_forecaster(self, y, X=None, fh=None):
         """Fit to training data.
 
         Parameters

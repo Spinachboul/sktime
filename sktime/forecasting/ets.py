@@ -266,7 +266,7 @@ class AutoETS(_StatsModelsAdapter):
                     stacklevel=2,
                 )
 
-    def _fit_forecaster(self, y, X=None):
+    def _fit_forecaster(self, y, X=None, fh=None):
         from joblib import Parallel, delayed
         from statsmodels.tsa.exponential_smoothing.ets import ETSModel as _ETSModel
 

@@ -173,7 +173,7 @@ class ExponentialSmoothing(_StatsModelsAdapter):
 
         super().__init__(random_state=random_state)
 
-    def _fit_forecaster(self, y, X=None):
+    def _fit_forecaster(self, y, X=None, fh=None):
         from statsmodels.tsa.holtwinters import (
             ExponentialSmoothing as _ExponentialSmoothing,
         )
