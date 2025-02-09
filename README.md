@@ -230,6 +230,9 @@ There are many ways to join the sktime community. We follow the [all-contributor
 
 ## :trophy: Hall of fame
 
+This project follows the
+[all-contributors](https://github.com/all-contributors/all-contributors) specification.
+
 Thanks to all our community for all your wonderful contributions, PRs, issues, ideas.
 
 <a href="https://github.com/sktime/sktime/graphs/contributors">
